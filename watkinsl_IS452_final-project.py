@@ -60,6 +60,8 @@ for file_path in filenames:
             artist_rows.extend([tweets_num, Twitter_followers_num])
 
 print(artist_rows)
+# output: ['Bruno Mars\xa0Tickets', '4.8', '6,491', '360', '4,134', '38.9M', 'Drake\xa0Tickets', '4.7', '3,109',
+#           '4,129', '1,713', '36.5M']
 
 # ------------------------
 # WORKING CODE
