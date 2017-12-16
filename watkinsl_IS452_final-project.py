@@ -5,20 +5,47 @@
 # Final Project
 # 12/21/17
 
+# ------------------------
+# PROGRAM TO-DO LIST:
+# [x] Be able to extract data from webpages
+# [x] Be able to write to a CSV file in correct rows & columns
+# [x] Combine tasks into a loop that will go over multiple files
+# [] Save out results to a nested list that will be used for the CSV file
+# [don't do] Use pandas to create a visualization based on the data saved to the CSV file
+# [don't do] Export and post on a website (?)
+# - OR - [don't do] Be able to create different visualizations to figure out different aspects of the data
+# [x] create function split on period to evaluate the millions into an actual number (i.e. 38.9M) * find package
+# [] accumulator to create list of lists (xpathb homework to make lists of lists)
+# ------------------------
+
 # import libraries
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from lxml import html
 
 # ------------------------
-# CREATING PROGRAM
+# CREATING ACTUAL PROGRAM
 # ------------------------
+# define function for convert strings of numbers into integers
+
+
+def convert_num(num):
+    mil_num = num.split('M')
+    mil_num_float = float(mil_num[0])
+    m_to_num = int(mil_num_float * 1000000)
+
+    return m_to_num
+
 
 filenames = ['artist_Bruno-Mars.html', 'IG_Bruno-Mars.htm', 'Twitter_Bruno-Mars.htm', 'artist_Drake.html',
             'IG_Drake.htm', 'Twitter_Drake.htm']
 
 artist_rows = []
 
+#artist_dict = {'Bruno Mars', 'Drake', 'The Chainsmokers', 'Kendrick Lamar', 'Ed Sheeran'}
+
 for file_path in filenames:
+    artist_data = []
     with open(file_path, 'r') as f_input:
         read_in = f_input.read()
         soup = BeautifulSoup(read_in, 'html.parser')
@@ -27,7 +54,7 @@ for file_path in filenames:
             artist_name = soup.find('div', attrs={'class': 'artistDetails'}) # line 4230
             name = artist_name.find('h1')
             only_name = name.text.strip() # strip() is used to remove starting and trailing
-
+            #print(only_name.split('\xa0Tickets')[0])
             # rating on Ticketmaster
             artist_rating = soup.find('span', attrs={'itemprop': 'ratingValue'}) # line 4333
             rating_text = artist_rating.text.strip()
@@ -37,14 +64,23 @@ for file_path in filenames:
             artist_reviews_num = artist_reviews.find('span', attrs={'class': 'BVRRNumber'})
             reviews_text = artist_reviews_num.text.strip()
 
-            artist_rows.extend([only_name, rating_text, reviews_text])
+            artist_data.extend([only_name.split('\xa0Tickets')[0], float(rating_text), int(reviews_text.replace(',', ''))])
 
         elif file_path.startswith('IG'):
+            #page = soup
+            tree = html.fromstring(read_in)
+
             # no. of Instagram posts
             IG_posts = soup.find('span', attrs={'class': '_fd86t'})
             #IG_followers_num = IG_followers.find('title')
             IG_post_num = IG_posts.text.strip()
-            artist_rows.append(IG_post_num)
+
+            # no. of Instagram followers (needs work)
+            IG_followers = tree.xpath('//span[@class="_fd86t"]/@title')
+            # refer to assignment to get rid of xpath list
+            artist_data.extend([int(IG_post_num.replace(',', '')), int(IG_followers[0].replace(',', ''))])
+
+            #print(IG_followers)
 
         elif file_path.startswith('Twitter'):
             # no. of tweets
@@ -56,12 +92,12 @@ for file_path in filenames:
             Twitter_followers = soup.find('li', attrs={'class': 'ProfileNav-item ProfileNav-item--followers'})
             Twitter_followers_text = Twitter_followers.find('span', attrs={'class': 'ProfileNav-value'})
             Twitter_followers_num = Twitter_followers_text.text.strip()
+            Twit_num = convert_num(Twitter_followers_num)
 
-            artist_rows.extend([tweets_num, Twitter_followers_num])
+            artist_data.extend([int(tweets_num.replace(',', '')), Twit_num])
+    artist_rows.append(artist_data)
 
 print(artist_rows)
-# output: ['Bruno Mars\xa0Tickets', '4.8', '6,491', '360', '4,134', '38.9M', 'Drake\xa0Tickets', '4.7', '3,109',
-#           '4,129', '1,713', '36.5M']
 
 # ------------------------
 # WORKING CODE
