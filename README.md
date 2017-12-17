@@ -1,10 +1,10 @@
 # IS452_Final-Project_2017
-# Lisa Watkins
-# netID: watkinsl
-# IS 452AO
-# 2 Credit Hour
-# Final Project | ReadMe File
-# 12/21/17
+Lisa Watkins
+netID: watkinsl
+IS 452AO
+2 Credit Hour
+Final Project | ReadMe File
+12/21/17
 
 This repository will house every aspect of my final project for IS452 Foundations of Info Processing (Python).
 
