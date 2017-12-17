@@ -1,9 +1,14 @@
 # IS452_Final-Project_2017
 Lisa Watkins
+
 netID: watkinsl
+
 IS 452AO
+
 2 Credit Hour
+
 Final Project | ReadMe File
+
 12/21/17
 
 This repository will house every aspect of my final project for IS452 Foundations of Info Processing (Python).
@@ -15,6 +20,7 @@ This program was to exercise the practice of web scraping for purposeful data. I
 - Drake
 - The Chainsmokers
 - Ed Sheeran
+
 The program scrapes web files saved from various sources: Ticketmaster, Instagram, and Twitter. The reasoning behind this will be explained below. Certain pieces of information are scraped, cleaned up, interpreted, and written to a CSV file, which can be used for further investigation.
 
 To execute the program successfully, you will need to do the following:
