@@ -12,6 +12,12 @@ Final Project | ReadMe File
 12/21/17
 
 This repository will house every aspect of my final project for IS452 Foundations of Info Processing (Python).
+- Final project proposal that was a required aspect of the final project although the project has evolved since the submission
+- Python (.py) file containing program
+- necessary HTML and HTM files that will be used within the Python program
+- CSV file that will output as a result of the program
+- Word document containing a narrative about the process of developing this program as part of the project requirements
+- This ReadMe file, which acts as the documentation on how to run the code, another requirement of the project
 
 What is the point of this program:
 This program was to exercise the practice of web scraping for purposeful data. I believe that this program is scalable and can be used on any set of artists. In the case of this particular program, I am looking at the nominees for the Artist of the Year award at the American Music Awards. There were five nominees:
