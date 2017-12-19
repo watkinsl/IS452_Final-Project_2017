@@ -12,6 +12,12 @@ Final Project | ReadMe File
 12/21/17
 
 This repository will house every aspect of my final project for IS452 Foundations of Info Processing (Python).
+- Final project proposal that was a required aspect of the final project although the project has evolved since the submission
+- Python (.py) file containing program
+- necessary HTML and HTM files that will be used within the Python program
+- CSV file that will output as a result of the program
+- Word document containing a narrative about the process of developing this program as part of the project requirements
+- This ReadMe file, which acts as the documentation on how to run the code, another requirement of the project
 
 What is the point of this program:
 This program was to exercise the practice of web scraping for purposeful data. I believe that this program is scalable and can be used on any set of artists. In the case of this particular program, I am looking at the nominees for the Artist of the Year award at the American Music Awards. There were five nominees:
@@ -38,12 +44,13 @@ Once all of the necessary files are downloaded, you will be able to run the prog
 
 Note: This program was developed using Python 3.
 
-The program doesn't require any input, so you will be able to run the program successfully once you open it. Once the program is finished running, a CSV file will output to the directory called, "artists.csv." What the program will output to the CSV file is:
-- five rows containing artist information
-- seven columns with varying types of information (i.e. name, rating, # of reviews...)
+The program doesn't require any input, so you will be able to run the program successfully once you open it. Once the program is finished running, a CSV file will output to the directory called, "AMA-nominated_artists_info.csv." What the program will output to the CSV file is:
+- one row of headers corresponding to related information that will be stored within that column
+  - seven columns with varying types of information (i.e. name, rating, # of reviews...)
+- five rows containing artist information for each of the five artists nominated in the "Artist of the Year" award category at
+  the American Music Awards
 
 What is significant about this program:
 This program aggregates data scraped from various web sources (Ticketmaster, Instagram, and Twitter) on the set of artists that were nonimated for the Artist of the Year award at the American Music Awards (AMAs).
 
-The AMAs decide on winners based on a myriad of factors, but one is fan interaction. In today's age, social media is most likely the best way an artist can interact with their fans. I have chosen the two social media platforms that are really conducive to interacting with an artist. Another way artists interact with their fans is obviously through concerts, which is where Ticketmaster comes in. Fans rate and review their experiences at an artist's concert, which is important for their popularity and success. 
-  
+The AMAs decide on winners based on a myriad of factors, but one is fan interaction. In today's age, social media is most likely the best way an artist can interact with their fans. I have chosen the two social media platforms that are really conducive to interacting with an artist. Another way artists interact with their fans is obviously through concerts, which is where Ticketmaster comes in. Fans rate and review their experiences at an artist's concert, which is important for their popularity and success.
